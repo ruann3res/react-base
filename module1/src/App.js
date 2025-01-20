@@ -5,14 +5,39 @@ import Header from "./Header";
 export default function App() {
     return (
         <>
-            <Header>
+            <Header title="Primeiro Projeto React">
                 <h2>Meu primeiro projeto</h2>
             </Header>
             <hr />
-            <Post title="Olá Mundo" subtittle="Esse e meu site" />
-            <Post title="Olá Mundo 1" subtittle="Esse e meu site 1" />
-            <Post title="Olá Mundo 2" subtittle="Esse e meu site 2" />
-            <Post title="Olá Mundo 3" subtittle="Esse e meu site 3" />
+            <Post
+                post={{
+                    title: "Olá Mundo!",
+                    subtittle: "Esse e meu site!"
+                }}
+                likes={20}
+            />
+            <Post
+                post={{
+                    title: "Olá Mundo 1",
+                    subtittle: "Esse e meu site 1"
+                }}
+                likes={10}
+            />
+            <Post
+                post={{
+                    title: "Olá Mundo 2",
+                    subtittle: "Esse e meu site 2"
+                }}
+                likes={24}
+            />
+            <Post
+                post={{
+                    title: "Olá Mundo 1",
+                    subtittle: "Esse e meu site 1"
+                }}
+                likes={4}
+            />
+
         </>
     )
 }
