@@ -6,6 +6,7 @@ ReactDOM.render(
         <span>
             Olá Mundo!!
         </span>
+        <p>Tudo bem?</p>
     </h1>,
     document.getElementById('root')
 )
