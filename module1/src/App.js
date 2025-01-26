@@ -4,9 +4,9 @@ import Header from "./Header";
 
 export default function App() {
     const [posts, setPosts] = useState([
-        { id: Math.random(), title: "Post #01", subtittle: "Sub #01", likes: 20, },
-        { id: Math.random(), title: "Post #02", subtittle: "Sub #02", likes: 10 },
-        { id: Math.random(), title: "Post #03", subtittle: "Sub #03", likes: 40 }
+        { id: Math.random(), title: "Post #01", subtittle: "Sub #01", likes: 20, read: false },
+        { id: Math.random(), title: "Post #02", subtittle: "Sub #02", likes: 10, read: true },
+        { id: Math.random(), title: "Post #03", subtittle: "Sub #03", likes: 40, read: false }
     ])
 
     function handleUpdatePosts() {
@@ -19,6 +19,13 @@ export default function App() {
                 likes: 40
             }])
     }
+
+    function handleDeletePost(postId) {
+        setPosts((prevState) => (
+            prevState.filter(post => post.id !== postId)
+        ))
+    }
+
     return (
         <>
             <Header title="Primeiro Projeto React">
@@ -29,14 +36,13 @@ export default function App() {
                 Atualizar Posts
             </button>
             <hr />
+
             {posts.map(post => (
                 <Post
                     key={post.title}
-                    likes={post.likes}
-                    post={{
-                        title: post.title,
-                        subtittle: post.subtittle
-                    }}
+
+                    onRemove={handleDeletePost}
+                    post={post}
                 />
             ))}
         </>
