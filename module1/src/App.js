@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Post from "./Post";
 import Header from "./Header";
+import { ThemeProvider } from "./ThemeContext"
 
 export default function App() {
     const [posts, setPosts] = useState([
@@ -27,8 +28,10 @@ export default function App() {
     }
 
     return (
-        <>
-            <Header title="Primeiro Projeto React">
+        <ThemeProvider>
+            <Header
+                title="Primeiro Projeto React"
+            >
                 <h2>Meu primeiro projeto</h2>
             </Header>
             <br />
@@ -40,14 +43,14 @@ export default function App() {
             {posts.map(post => (
                 <Post
                     key={post.title}
-
                     onRemove={handleDeletePost}
                     post={post}
                 />
             ))}
-        </>
+        </ThemeProvider>
     )
 }
+
 
 
 

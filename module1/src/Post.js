@@ -1,24 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
+import PostHeader from "./PostHeader";
 
 export default function Post(props) {
-    // if (props.post.read) {
-    //     return <h2><s>{props.post.title}</s></h2>
-    // }
-
     return (
         <>
             <article>
-                <strong>
-                    {/* {props.post.read && <s>{props.post.title}</s>}
-                    {!props.post.read && <s>{props.post.title}</s>} */}
-
-                    {props.post.read ? <s>{props.post.title}</s> : props.post.title}
-                </strong>
+                <PostHeader
+                    onRemove={props.onRemove}
+                    post={{
+                        id: props.post.id,
+                        title: props.post.title,
+                        read: props.post.read
+                    }}
+                />
                 <br />
                 <small>{props.post.subtittle}</small>
                 <p>Likes: {props.post.likes / 2}</p>
-                <button onClick={() => props.onRemove(props.post.id)}>Remover</button>
                 <br />
             </article>
             <br />
@@ -27,7 +25,6 @@ export default function Post(props) {
 }
 
 Post.propTypes = {
-
     onRemove: PropTypes.func.isRequired,
     post: PropTypes.shape({
         id: PropTypes.number.isRequired,
