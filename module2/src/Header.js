@@ -6,7 +6,7 @@ import { ThemeContext } from "./ThemeContext";
 export default function Header({ title, children }) {
     const { onToggleTheme } = useContext(ThemeContext)
     return (
-        <div style={{ background: '#abcdef', fontFamily: 'monospace' }}>
+        <div >
             <h1>{title}</h1>
             <Button onClick={onToggleTheme} >Atualizar Thema</Button>
             {children}
