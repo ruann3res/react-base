@@ -2,12 +2,13 @@ import PropTypes from "prop-types";
 import React from "react";
 import PostHeader from "./PostHeader";
 
-import styles from './Post.scss';
+
+import { Container, Likes, SubTitle } from "./styles";
+
+
 export default function Post(props) {
     return (
-        <article className={
-            props.post.removed ? styles.postDeleted : styles.post
-            }>
+        <Container removed={props.post.removed}>
             <PostHeader
                 onRemove={props.onRemove}
                 post={{
@@ -16,11 +17,9 @@ export default function Post(props) {
                     read: props.post.read
                 }}
             />
-            <br />
-            <small>{props.post.subtittle}</small>
-            <p>Likes: {props.post.likes / 2}</p>
-            <br />
-        </article>
+            <SubTitle >{props.post.subtittle}</SubTitle>
+            <Likes>Likes: {props.post.likes / 2}</Likes>
+        </Container>
     );
 }
 

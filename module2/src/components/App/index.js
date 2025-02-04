@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import Header from "./Header";
-import Post from "./Post";
-import { ThemeProvider } from "./ThemeContext";
+import { ThemeProvider } from "../../context/ThemeContext";
+import Header from "../Header";
+import Post from "../Post";
+
+import { Title } from "./styles";
 
 export default function App() {
     const [posts, setPosts] = useState([
@@ -36,7 +38,7 @@ export default function App() {
             <Header
                 title="Primeiro Projeto React"
             >
-                <h2>Meu primeiro projeto</h2>
+                <Title as="h2">Meu primeiro projeto</Title>
             </Header>
             <br />
             <button onClick={handleUpdatePosts}>
